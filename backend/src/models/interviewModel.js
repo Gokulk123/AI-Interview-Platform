@@ -1,8 +1,8 @@
 const pool = require("../config/db");
 
-const saveInterview = async (userId, jobRole, experience, difficulty) => {
+const saveInterview = async (userId, job_role, experience, difficulty) => {
   const query = `INSERT INTO interviews(user_id, job_role, experience, difficulty) VALUES($1,$2,$3,$4) RETURNING *`;
-  const values = [userId, jobRole, experience, difficulty];
+  const values = [userId, job_role, experience, difficulty];
   const result = await pool.query(query, values);
 
   return result.rows[0];

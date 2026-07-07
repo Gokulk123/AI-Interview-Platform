@@ -4,11 +4,11 @@ const { generateQuestions } = require("../services/groqService");
 
 const createInterview = async (req, res) => {
   try {
-    const { jobRole, experience, difficulty } = req.body;
+    const { job_role, experience, difficulty } = req.body;
     const userId = req.user.id;
     const response = await Interview.saveInterview(
       userId,
-      jobRole,
+      job_role,
       experience,
       difficulty,
     );
